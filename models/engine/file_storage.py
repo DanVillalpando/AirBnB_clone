@@ -4,6 +4,13 @@
 """
 
 import json
+from models.base_model import BaseModel
+from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
 class FileStorage:
     """
@@ -34,6 +41,8 @@ class FileStorage:
 	file (path: __file_path)
         """
         new_d = {}
+        for key, va in self.__objects.items():
+            new_d[key] = va.to_dict()
         with open(self.__file_path, "w", encoding="UTF-8") as MyFile:
             json.dump(new_d, MyFile)
 
@@ -43,9 +52,11 @@ class FileStorage:
         (only if the JSON file (__file_path) exists
 	otherwise, do nothing.
         """
-
         try:
             with open(self.__file_path, "r", encoding="UTF-8") as MyFile:
                 obj = json.load(MyFile)
+                for key, va in obj.items():
+                    class_name = key.split('.')[0]
+                    self.__objects[key] = eval(class_name)(**va)
         except:
             pass
