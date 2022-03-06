@@ -33,7 +33,8 @@ class FileStorage:
 	<obj class name>.id
         """
         if obj:
-           obj = self.__objects["{}.{}".format(obj.__class__.__name__, obj.id)]
+            self.__objects["{}.{}".format(
+                obj.__class__.__name__, obj.id)] = obj
 
     def save(self):
         """

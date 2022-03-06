@@ -19,7 +19,8 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = '(hbnb) '
-    my_class = {"BaseModel"}
+    my_class = {"BaseModel", "User", "Place", "State",
+                "City", "Amenity", "Review"}
 
     def do_quit(self, args):
         """
@@ -29,7 +30,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, args):
         """
-        EOF command
+        EOF command (exit)
         """
         return True
 
@@ -73,7 +74,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         if len(args) < 2:
             print("** instance id missing **")
-	else:
+        else:
             objects = models.storage.all()
             key = "{}.{}".format(args[0], args[1])
             try:
