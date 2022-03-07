@@ -24,7 +24,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, args):
         """
-        Exit command
+        Quit command to exit the program
         """
         return True
 
@@ -44,8 +44,8 @@ class HBNBCommand(cmd.Cmd):
         """
         Empty line execute anything/ignore
         """
-        print('emptyline()')
-        return cmd.Cmd.emptyline(self)
+        #return cmd.Cmd.emptyline(self)
+        pass
 
     def do_create(self, args):
         """
