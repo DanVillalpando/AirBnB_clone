@@ -14,10 +14,10 @@ from models.review import Review
 
 class FileStorage:
     """
-    Serializes instances to a JSON file and deserializes 
+    Serializes instances to a JSON file and deserializes
     JSON file to instances
     """
-        
+
     __file_path = "file.json"
     __objects = {}
 
@@ -29,7 +29,7 @@ class FileStorage:
 
     def new(self, obj):
         """
-        Sets in __objects the obj with key 
+        Sets in __objects the obj with key
 	<obj class name>.id
         """
         if obj:
@@ -38,7 +38,7 @@ class FileStorage:
 
     def save(self):
         """
-        Serializes __objects to the JSON 
+        Serializes __objects to the JSON
 	file (path: __file_path)
         """
         new_d = {}
